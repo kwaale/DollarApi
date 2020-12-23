@@ -35,13 +35,14 @@ let data = {
     dolarBlue:{}
 }
 const apiFetch = async (url1, url2)=>{
-    console.log('fetch');
+    const url = url1 + url2;
+    console.log('fetch', url);
     try{
-        const response = await fetch(url1, url2);
+        const response = await fetch(url);
         let info = await response.json();
         return info;
     }catch(err){
-        console.error('Fetch error', err)
+        console.error('FETCH ERROR', err)
     }
 }
 
