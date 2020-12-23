@@ -1,3 +1,4 @@
+//https://kwaale.github.io/DollarApi/.
 //https://api-dolar-argentina.herokuapp.com/
 //https://api-dolar-argentina.herokuapp.com/api/riesgopais
 //Cotizacion dólar bolsa {"fecha":"2020/12/23 13:32:36","compra":"139.63","venta":"139.47"}
