@@ -46,7 +46,7 @@ const apiFetch = async (url1, url2)=>{
 }
 
 const start = async()=>{
-    data.bosa = await apiFetch(urlBase, urlSegundaria.bolsa);
+    let prueba = await apiFetch(urlBase, urlSegundaria.bolsa);
     data.riesgopais = await apiFetch(urlBase, urlSegundaria.bolsa);
     data.galicia = await apiFetch(urlBase, urlSegundaria.galicia);
     data.santander = await apiFetch(urlBase, urlSegundaria.santander);
@@ -55,6 +55,6 @@ const start = async()=>{
     data.reservas = await apiFetch(urlBase, urlSegundaria.reservas);
     data.pesosCircul = await apiFetch(urlBase, urlSegundaria.pesosCircul);
     data.dolarBlue = await apiFetch(urlBase, urlSegundaria.dolarBlue);
-    console.log("IMPRIMO LA DATA BOLSA", data.bolsa);
+    console.log("IMPRIMO LA DATA BOLSA", prueba);
 }
 window.onload = start();
