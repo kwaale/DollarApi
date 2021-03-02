@@ -11,6 +11,7 @@
 //Total de pesos en circulación {"fecha":"2020/12/23 13:36:00","valor":"1766360000000","moneda":"ARS"}
 //Evolución mensual anualizada del dólar blue
 //{"fecha":"2020/12/23 13:36:22","meses":[{"anio":"2019","mes":"12","valor":"69.71"},{"anio":"2020","mes":"1","valor":"77.00"},{"anio":"2020","mes":"2","valor":"77.79"},{"anio":"2020","mes":"3","valor":"79.45"},{"anio":"2020","mes":"4","valor":"97.10"},{"anio":"2020","mes":"5","valor":"121.35"},{"anio":"2020","mes":"6","valor":"126.03"},{"anio":"2020","mes":"7","valor":"126.19"},{"anio":"2020","mes":"8","valor":"134.19"},{"anio":"2020","mes":"9","valor":"136.80"},{"anio":"2020","mes":"10","valor":"165.16"},{"anio":"2020","mes":"11","valor":"161.60"}]}
+let info = {}
 const urlBase ='https://api-dolar-argentina.herokuapp.com/';
 const urlSegundaria = {
     bolsa:'api/dolarbolsa',
@@ -38,9 +39,13 @@ const apiFetch = async (url1, url2)=>{
     const url = url1 + url2;
     console.log('fetch', url);
     try{
-        const response = await fetch(url);
-        let info = await response.json();
-        return info;
+        console.log("Entra try")
+        const response = await fetch('https://api-dolar-argentina.herokuapp.com/api/riesgopais');
+        
+        console.log("response",response)
+        info = await response.json();
+        console.log("Info",info)
+        //return info;
     }catch(err){
         console.error('FETCH ERROR', err)
     }
@@ -48,14 +53,14 @@ const apiFetch = async (url1, url2)=>{
 
 const start = async()=>{
     let prueba = await apiFetch(urlBase, urlSegundaria.bolsa);
-    data.riesgopais = await apiFetch(urlBase, urlSegundaria.bolsa);
-    data.galicia = await apiFetch(urlBase, urlSegundaria.galicia);
-    data.santander = await apiFetch(urlBase, urlSegundaria.santander);
-    data.nacion = await apiFetch(urlBase, urlSegundaria.nacion);
-    data.casasBolsaMarP = await apiFetch(urlBase, urlSegundaria.casasBolsaMarP);
-    data.reservas = await apiFetch(urlBase, urlSegundaria.reservas);
-    data.pesosCircul = await apiFetch(urlBase, urlSegundaria.pesosCircul);
-    data.dolarBlue = await apiFetch(urlBase, urlSegundaria.dolarBlue);
+    // data.riesgopais = await apiFetch(urlBase, urlSegundaria.bolsa);
+    // data.galicia = await apiFetch(urlBase, urlSegundaria.galicia);
+    // data.santander = await apiFetch(urlBase, urlSegundaria.santander);
+    // data.nacion = await apiFetch(urlBase, urlSegundaria.nacion);
+    // data.casasBolsaMarP = await apiFetch(urlBase, urlSegundaria.casasBolsaMarP);
+    // data.reservas = await apiFetch(urlBase, urlSegundaria.reservas);
+    // data.pesosCircul = await apiFetch(urlBase, urlSegundaria.pesosCircul);
+    // data.dolarBlue = await apiFetch(urlBase, urlSegundaria.dolarBlue);
     console.log("IMPRIMO LA DATA BOLSA", prueba);
 }
 window.onload = start();
